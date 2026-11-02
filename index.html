@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- @BilledJobs — page d'accueil hébergée sur GitHub Pages (DEC-147). Porte le nom et l'icône pour l'écran d'accueil,
+       et ouvre l'application Apps Script en pleine page : la connexion Google ne s'affiche pas dans un cadre. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>@BilledJobs</title>
+  <meta name="description" content="Suivi d'activité d'un indépendant.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#174A87">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icone-32.png">
+  <link rel="apple-touch-icon" href="icone-180.png">
+  <meta name="apple-mobile-web-app-title" content="@BilledJobs">
+  <style>
+    :root { --fond: #F6F6F3; --surface: #FFFFFF; --texte: #1F2328; --texte-2: #5A6169; --bord: #E2E2DC; --bleu: #1F5FAD; --bleu-fonce: #174A87; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 24px 16px;
+      background: var(--fond); color: var(--texte); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    main { width: 100%; max-width: 420px; text-align: center; }
+    img { width: 128px; height: 128px; border-radius: 28px; }
+    h1 { margin: 16px 0 24px; font-size: 26px; }
+    .ouvrir { display: flex; align-items: center; justify-content: center; min-height: 56px; padding: 12px 16px; border-radius: 12px;
+      background: var(--bleu); color: #fff; font-size: 18px; font-weight: 600; text-decoration: none; }
+    .ouvrir:hover, .ouvrir:active { background: var(--bleu-fonce); }
+    details { margin-top: 24px; padding: 4px 16px; text-align: left; background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; color: var(--texte-2); }
+    summary { min-height: 44px; display: flex; align-items: center; color: var(--texte); cursor: pointer; }
+    summary::before { content: "▸"; margin-right: 8px; }
+    details[open] summary::before { content: "▾"; }
+    p { margin: 0 0 12px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="icone-180.png" alt="">
+    <h1>@BilledJobs</h1>
+    <a class="ouvrir" href="https://script.google.com/macros/s/AKfycbzUlEAw8vqCk2bAzPDdy3i5NdaOkXYQ6AqFr6SbT0MddxSu_dhSC4_pIik-HfGM-Sc/exec">Ouvrir @BilledJobs</a>
+    <details>
+      <summary>Mettre l'icône sur l'écran d'accueil</summary>
+      <p><strong>iPad, iPhone :</strong> dans Safari, Partager, puis « Sur l'écran d'accueil ».</p>
+      <p><strong>Android :</strong> dans Chrome, menu ⋮, puis « Ajouter à l'écran d'accueil ».</p>
+    </details>
+    <details>
+      <summary>Si Google refuse l'accès</summary>
+      <p>Seuls les comptes Google autorisés ouvrent l'application. Connectez-vous avec l'un d'eux, ou ouvrez cette page dans un onglet privé et connectez-vous au bon compte.</p>
+    </details>
+  </main>
+</body>
+</html>
