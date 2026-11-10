@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- @BilledJobs — présentation en images pour Jon (diaporama de la MEP, DEC-85, DEC-124, DEC-144), hébergée sur GitHub Pages à côté
+       de sa page d'accueil. Page publique : aucune donnée de Jon, seulement des exemples fictifs. Version du 10/11/2026, application 1.0.3. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Découvrir @BilledJobs</title>
+  <meta name="description" content="@BilledJobs en quelques images : séances, facturation, paiements, dépenses, chiffres.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#174A87">
+  <link rel="icon" type="image/png" href="../icone-32.png">
+  <style>
+    :root { --fond: #F6F6F3; --surface: #FFFFFF; --texte: #1F2328; --texte-2: #5A6169; --bord: #E2E2DC; --bleu: #1F5FAD; --bleu-fonce: #174A87;
+      --bleu-clair: #E8F0FA; --orange: #B4590E; --orange-clair: #FDF0E3; --rouge: #B42318; --vert: #1E7A55; --vert-clair: #E4F4EC; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --fond: #15171A; --surface: #1E2125; --texte: #E8EAED; --texte-2: #A5ACB4; --bord: #33383E; --bleu: #5B9BE6;
+        --bleu-fonce: #7FB0EC; --bleu-clair: #1C2A3B; --orange: #E39A55; --orange-clair: #33261A; --rouge: #F07A6E; --vert: #5CC495; --vert-clair: #1A2E25; }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--fond); color: var(--texte); font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; flex-direction: column; }
+    header { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--bord); background: var(--surface); }
+    header img { width: 36px; height: 36px; border-radius: 9px; }
+    header strong { flex: 1; font-size: 17px; }
+    header a { color: var(--bleu); text-decoration: none; min-height: 44px; display: flex; align-items: center; }
+    main { flex: 1; overflow: hidden; position: relative; }
+    .diapo { position: absolute; inset: 0; overflow-y: auto; padding: 24px 16px 32px; display: none; }
+    .diapo.active { display: block; }
+    .contenu { max-width: 560px; margin: 0 auto; }
+    .numero { color: var(--texte-2); font-size: 14px; margin: 0 0 4px; }
+    h1 { font-size: 26px; line-height: 1.25; margin: 0 0 16px; }
+    h2 { font-size: 23px; line-height: 1.25; margin: 0 0 16px; }
+    p { margin: 0 0 14px; }
+    ol, ul { margin: 0 0 14px; padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    .carte { background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; padding: 14px 16px; margin: 0 0 14px; }
+    .encadre { background: var(--bleu-clair); border-radius: 12px; padding: 14px 16px; margin: 0 0 14px; }
+    .attention { background: var(--orange-clair); border-radius: 12px; padding: 14px 16px; margin: 0 0 14px; }
+    .bouton { display: inline-block; padding: 2px 10px; border-radius: 8px; background: var(--bleu); color: #fff; font-weight: 600; font-size: 15px; white-space: nowrap; }
+    .ecrans { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 14px; }
+    .ecrans div { background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; padding: 12px; }
+    .ecrans strong { display: block; color: var(--bleu-fonce); }
+    .etapes { counter-reset: e; list-style: none; padding: 0; }
+    .etapes li { counter-increment: e; position: relative; padding-left: 40px; min-height: 30px; }
+    .etapes li::before { content: counter(e); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--bleu); color: #fff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .pastilles span { display: inline-block; margin: 0 6px 6px 0; padding: 2px 10px; border-radius: 999px; font-size: 15px; border: 1px solid var(--bord); }
+    .p-faite { background: var(--bleu-clair); }
+    .p-absence { background: var(--orange-clair); }
+    .p-retard { color: var(--rouge); border-color: var(--rouge) !important; }
+    .p-ok { background: var(--vert-clair); }
+    nav { display: flex; align-items: center; gap: 12px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--bord); background: var(--surface); }
+    nav button { min-width: 64px; min-height: 48px; border-radius: 12px; border: 1px solid var(--bord); background: var(--surface); color: var(--texte); font-size: 22px; cursor: pointer; }
+    nav button.suivant { background: var(--bleu); border-color: var(--bleu); color: #fff; }
+    nav button:disabled { opacity: .35; cursor: default; }
+    .points { flex: 1; display: flex; justify-content: center; flex-wrap: nowrap; gap: 4px; }
+    .points button { min-width: 0; min-height: 0; width: 8px; height: 8px; padding: 0; border-radius: 50%; border: none; background: var(--bord); }
+    .points button.active { background: var(--bleu); }
+    .compteur { color: var(--texte-2); font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="../icone-180.png" alt="">
+    <strong>Découvrir @BilledJobs</strong>
+    <a href="../">Accueil</a>
+  </header>
+  <main id="diapos">
+
+    <section class="diapo active" aria-label="1">
+      <div class="contenu">
+        <p class="numero">Bienvenue</p>
+        <h1>@BilledJobs suit votre activité, du rendez-vous au paiement</h1>
+        <div class="carte">
+          <ul>
+            <li>vos <strong>séances</strong> prévues et faites ;</li>
+            <li>ce qu'il reste à <strong>facturer</strong> ;</li>
+            <li>les <strong>paiements</strong> attendus et en retard ;</li>
+            <li>vos <strong>dépenses</strong> ;</li>
+            <li>vos <strong>chiffres</strong>, dont la déclaration URSSAF.</li>
+          </ul>
+        </div>
+        <div class="encadre">@BilledJobs <strong>n'émet pas vos factures</strong> : vous les faites dans votre logiciel de facturation, puis vous les notez ici.</div>
+        <p>Sur téléphone, tablette et ordinateur. Touchez <strong>›</strong> pour avancer.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="2">
+      <div class="contenu">
+        <p class="numero">Ouvrir</p>
+        <h2>Une page d'accueil, un bouton</h2>
+        <ol class="etapes">
+          <li>Touchez l'icône @BilledJobs, ou ouvrez <strong>billedjobs.github.io/jon</strong>.</li>
+          <li>Touchez <span class="bouton">Ouvrir @BilledJobs</span>.</li>
+          <li>Vérifiez votre compte Google, affiché sous le numéro de version.</li>
+        </ol>
+        <div class="attention">Google refuse d'ouvrir ? Un autre compte est connecté dans ce navigateur : ouvrez la page dans un onglet privé, avec votre seul compte.</div>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="3">
+      <div class="contenu">
+        <p class="numero">Les écrans</p>
+        <h2>Quatre boutons en bas de l'écran</h2>
+        <div class="ecrans">
+          <div><strong>À faire</strong>Ce qui attend un geste de vous. C'est l'accueil.</div>
+          <div><strong>Planning</strong>Vos séances, par semaine ou par session.</div>
+          <div><strong>À facturer</strong>À facturer, en attente, payées.</div>
+          <div><strong>Chiffres</strong>L'essentiel, l'argent, les clients, les heures.</div>
+        </div>
+        <p><strong>Plus</strong> donne le reste : Clients, Dépenses, Journal, Paramétrages.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="4">
+      <div class="contenu">
+        <p class="numero">Une séance</p>
+        <h2>Prévoir une séance</h2>
+        <ol class="etapes">
+          <li><span class="bouton">+ Séance</span>, puis la date et le client.</li>
+          <li>La <strong>prestation est proposée pour vous</strong> : celle de la dernière fois pour ce client, sinon la seule de son activité habituelle.</li>
+          <li>Heure, durée, type, modalité : enregistrer.</li>
+        </ol>
+        <div class="encadre">Dans la liste, les prestations de l'activité du client viennent en premier, puis un trait, puis les autres. Rien n'est imposé : changez-la si besoin.</div>
+        <p>Les créneaux déjà pris s'affichent sous la date : deux séances ne se chevauchent jamais.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="5">
+      <div class="contenu">
+        <p class="numero">Après la séance</p>
+        <h2>Dire ce qui s'est passé, d'un appui</h2>
+        <p>Une séance passée encore « prévue » attend dans <strong>À faire</strong>, sous « Séances à confirmer » :</p>
+        <div class="pastilles"><span class="p-faite">Faite</span><span class="p-absence">Absence</span><span>Reporter</span></div>
+        <ul>
+          <li><strong>Faite</strong> : elle part dans À facturer.</li>
+          <li><strong>Absence</strong> : « facturer quand même » si vous la facturez.</li>
+          <li><strong>Reporter</strong> : une nouvelle séance est proposée, la semaine suivante.</li>
+        </ul>
+        <p>Rien n'est jamais effacé : une séance annulée reste visible, grisée.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="6">
+      <div class="contenu">
+        <p class="numero">Facturer</p>
+        <h2>Préparer, facturer ailleurs, noter ici</h2>
+        <ol class="etapes">
+          <li><strong>À facturer</strong> : le récapitulatif du client, prêt. <span class="bouton">Copier le récapitulatif</span></li>
+          <li>Faites la facture dans <strong>votre logiciel de facturation</strong>.</li>
+          <li><span class="bouton">Marquer facturée</span> : numéro, date, TVA, délai. L'échéance est calculée.</li>
+        </ol>
+        <div class="encadre">Un numéro qui ne suit pas votre format habituel ? L'application vous prévient ; gardez-le s'il est bien celui de la facture.</div>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="7">
+      <div class="contenu">
+        <p class="numero">Être payé</p>
+        <h2>Suivre les paiements</h2>
+        <p><strong>À facturer › En attente</strong> : échéance et reste dû de chaque facture.</p>
+        <div class="pastilles"><span>En attente</span><span class="p-retard">En retard</span><span class="p-ok">Payée</span></div>
+        <ol class="etapes">
+          <li><span class="bouton">Paiement reçu</span> : date et montant proposés, le mode à choisir.</li>
+          <li>Payée en entier, la facture passe dans « Payées ».</li>
+        </ol>
+        <p>En retard, elle passe en rouge et s'affiche aussi dans À faire.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="8">
+      <div class="contenu">
+        <p class="numero">Les dépenses</p>
+        <h2>Le ticket, tel qu'il est</h2>
+        <p><span class="bouton">+ Dépense</span> : date, fournisseur, catégorie, <strong>montant TTC du ticket</strong>, taux de TVA. Le HT est calculé.</p>
+        <div class="encadre"><strong>Pourquoi tous les taux de TVA sont proposés ici ?</strong> Le taux d'un ticket est imposé par le fournisseur. Un restaurant à 10 % doit s'enregistrer, même si vous ne facturez jamais à 10 %. Pour vos factures, seuls vos taux sont proposés : pas d'erreur possible.</div>
+        <p>Une dépense annulée reste visible, barrée, et ne compte plus.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="9">
+      <div class="contenu">
+        <p class="numero">Vos chiffres</p>
+        <h2>Où en êtes-vous ?</h2>
+        <ul>
+          <li><strong>À traiter maintenant</strong> : retards, rappels, séances à confirmer.</li>
+          <li><strong>Ce qu'il reste à rentrer</strong> : à facturer, en attente, en retard.</li>
+          <li>Le mois, le trimestre, l'année, 12 mois glissants.</li>
+          <li>La <strong>déclaration URSSAF</strong> : le chiffre à déclarer, un rappel, puis « Marquer déclarée ».</li>
+        </ul>
+        <div class="encadre">Ces chiffres aident votre comptable ; ils ne remplacent pas votre comptabilité.</div>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="10">
+      <div class="contenu">
+        <p class="numero">Votre agenda</p>
+        <h2>Les séances dans Google Agenda</h2>
+        <p>Chaque séance prévue devient un rendez-vous de l'agenda « <strong>BilledJobs</strong> », sans prix. Toutes les 10 minutes, dans les deux sens :</p>
+        <div class="carte">
+          <ul>
+            <li>vous déplacez le rendez-vous : la séance suit ;</li>
+            <li>vous le supprimez : la séance passe « annulée », jamais effacée ;</li>
+            <li>vous annulez la séance : le rendez-vous disparaît.</li>
+          </ul>
+        </div>
+        <p>Sans attendre : <strong>Plus › Synchroniser l'agenda</strong>.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="11">
+      <div class="contenu">
+        <p class="numero">Le lundi matin</p>
+        <h2>Un rapport par e-mail, vers 7 h</h2>
+        <p>Chaque lundi : vos alertes et les chiffres de la semaine, même quand tout est à jour (« rien à traiter »).</p>
+        <p>Le bouton de l'e-mail ouvre directement l'application.</p>
+        <div class="encadre">Réglage : <strong>Plus › Paramétrages › E-mail, agenda et Drive</strong>. Recevoir les alertes : <strong>Oui / Non</strong>. Quand : chaque lundi, ou chaque jour s'il y a du nouveau.</div>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="12">
+      <div class="contenu">
+        <p class="numero">Vos chiffres, en détail</p>
+        <h2>Quatre onglets, la période de votre choix</h2>
+        <div class="ecrans">
+          <div><strong>Essentiel</strong>La situation du jour et les chiffres clés de la période.</div>
+          <div><strong>Argent</strong>Encaissé, facturé, en attente, dépenses, solde ; URSSAF et seuil de TVA.</div>
+          <div><strong>Clients</strong>Qui pèse combien, par client et par activité ; délai moyen de paiement.</div>
+          <div><strong>Heures</strong>Heures prévues et faites, semaine par semaine ; prix horaire moyen.</div>
+        </div>
+        <p>Période : le mois, le trimestre, l'année ou 12 mois glissants. Chaque bloc se replie, son chiffre clé reste visible.</p>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="13">
+      <div class="contenu">
+        <p class="numero">Paramétrages</p>
+        <h2>Votre application, réglée pour vous</h2>
+        <p><strong>Plus › Paramétrages</strong>, la roue crantée :</p>
+        <ul>
+          <li><strong>Mon entreprise</strong> : identité, SIRET ;</li>
+          <li><strong>Prestations</strong> : ce que vous vendez, avec leur prix horaire ;</li>
+          <li><strong>Listes</strong> : activités, types de séance, modalités, modes de paiement, catégories de dépenses, taux de TVA ;</li>
+          <li><strong>Seuils et alertes</strong>, régime de TVA, déclaration URSSAF ;</li>
+          <li><strong>E-mail, agenda et Drive</strong> : vos alertes.</li>
+        </ul>
+        <div class="encadre">Une valeur qui ne sert plus se <strong>désactive</strong> : elle n'est plus proposée, mais reste sur ce qui l'utilise déjà.</div>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="14">
+      <div class="contenu">
+        <p class="numero">À retenir</p>
+        <h2>Trois règles, et c'est tout</h2>
+        <ol class="etapes">
+          <li><strong>Tout se saisit dans l'application</strong>, jamais dans le classeur Google : elle contrôle chaque champ.</li>
+          <li><strong>Rien ne s'efface</strong> : on annule, on désactive. Le Journal garde la trace de tout.</li>
+          <li><strong>Un doute ?</strong> Le guide utilisateur répond, chapitre « Si quelque chose ne va pas ».</li>
+        </ol>
+        <p><a href="../" style="color:var(--bleu)">Revenir à la page d'accueil</a></p>
+      </div>
+    </section>
+
+  </main>
+  <nav>
+    <button type="button" id="precedent" aria-label="Image précédente">‹</button>
+    <div>
+      <div class="points" id="points"></div>
+      <div class="compteur" id="compteur"></div>
+    </div>
+    <button type="button" id="suivant" class="suivant" aria-label="Image suivante">›</button>
+  </nav>
+  <script>
+    (function () {
+      var diapos = Array.prototype.slice.call(document.querySelectorAll('.diapo'));
+      var points = document.getElementById('points');
+      var i = 0;
+      diapos.forEach(function (_, n) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Image ' + (n + 1));
+        b.addEventListener('click', function () { aller(n); });
+        points.appendChild(b);
+      });
+      function aller(n) {
+        i = Math.max(0, Math.min(diapos.length - 1, n));
+        diapos.forEach(function (d, k) { d.classList.toggle('active', k === i); });
+        Array.prototype.forEach.call(points.children, function (b, k) { b.classList.toggle('active', k === i); });
+        document.getElementById('precedent').disabled = i === 0;
+        document.getElementById('suivant').disabled = i === diapos.length - 1;
+        document.getElementById('compteur').textContent = (i + 1) + ' / ' + diapos.length;
+        diapos[i].scrollTop = 0;
+        try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+      }
+      document.getElementById('precedent').addEventListener('click', function () { aller(i - 1); });
+      document.getElementById('suivant').addEventListener('click', function () { aller(i + 1); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') aller(i + 1);
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') aller(i - 1);
+      });
+      var x0 = null;
+      var zone = document.getElementById('diapos');
+      zone.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      zone.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 60) aller(dx < 0 ? i + 1 : i - 1);
+        x0 = null;
+      });
+      function depuisAdresse() {
+        var n = parseInt((location.hash || '').replace('#', ''), 10);
+        aller(isNaN(n) ? 0 : n - 1);
+      }
+      window.addEventListener('hashchange', depuisAdresse);
+      depuisAdresse();
+    })();
+  </script>
+</body>
+</html>
