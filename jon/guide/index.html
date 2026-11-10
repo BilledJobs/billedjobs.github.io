@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <!-- @BilledJobs — présentation en images pour Jon (diaporama de la MEP, DEC-85, DEC-124, DEC-144), hébergée sur GitHub Pages à côté
-       de sa page d'accueil. Page publique : aucune donnée de Jon, seulement des exemples fictifs. Version du 10/11/2026, application 1.0.3. -->
+       de sa page d'accueil. Page publique : aucune donnée de Jon, seulement des exemples fictifs. Version du 10/11/2026, application 1.0.3. Captures : données neutres de l'aperçu (?etat=captures). -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Découvrir @BilledJobs</title>
@@ -58,6 +58,7 @@
     .points { flex: 1; display: flex; justify-content: center; flex-wrap: nowrap; gap: 4px; }
     .points button { min-width: 0; min-height: 0; width: 8px; height: 8px; padding: 0; border-radius: 50%; border: none; background: var(--bord); }
     .points button.active { background: var(--bleu); }
+    .capture { display: block; max-height: 38vh; max-width: 62%; margin: 0 auto 16px; border-radius: 16px; border: 1px solid var(--bord); box-shadow: 0 4px 16px rgba(0,0,0,.12); }
     .compteur { color: var(--texte-2); font-size: 14px; text-align: center; }
   </style>
 </head>
@@ -104,6 +105,7 @@
       <div class="contenu">
         <p class="numero">Les écrans</p>
         <h2>Quatre boutons en bas de l'écran</h2>
+        <img class="capture" src="img/01-a-faire.png" alt="Écran de l'application">
         <div class="ecrans">
           <div><strong>À faire</strong>Ce qui attend un geste de vous. C'est l'accueil.</div>
           <div><strong>Planning</strong>Vos séances, par semaine ou par session.</div>
@@ -118,6 +120,7 @@
       <div class="contenu">
         <p class="numero">Une séance</p>
         <h2>Prévoir une séance</h2>
+        <img class="capture" src="img/02-nouvelle-seance.png" alt="Écran de l'application">
         <ol class="etapes">
           <li><span class="bouton">+ Séance</span>, puis la date et le client.</li>
           <li>La <strong>prestation est proposée pour vous</strong> : celle de la dernière fois pour ce client, sinon la seule de son activité habituelle.</li>
@@ -132,6 +135,7 @@
       <div class="contenu">
         <p class="numero">Après la séance</p>
         <h2>Dire ce qui s'est passé, d'un appui</h2>
+        <img class="capture" src="img/03-seances-a-confirmer.png" alt="Écran de l'application">
         <p>Une séance passée encore « prévue » attend dans <strong>À faire</strong>, sous « Séances à confirmer » :</p>
         <div class="pastilles"><span class="p-faite">Faite</span><span class="p-absence">Absence</span><span>Reporter</span></div>
         <ul>
@@ -147,6 +151,7 @@
       <div class="contenu">
         <p class="numero">Facturer</p>
         <h2>Préparer, facturer ailleurs, noter ici</h2>
+        <img class="capture" src="img/07-marquer-facturee.png" alt="Écran de l'application">
         <ol class="etapes">
           <li><strong>À facturer</strong> : le récapitulatif du client, prêt. <span class="bouton">Copier le récapitulatif</span></li>
           <li>Faites la facture dans <strong>votre logiciel de facturation</strong>.</li>
@@ -160,6 +165,7 @@
       <div class="contenu">
         <p class="numero">Être payé</p>
         <h2>Suivre les paiements</h2>
+        <img class="capture" src="img/09-paiement-recu.png" alt="Écran de l'application">
         <p><strong>À facturer › En attente</strong> : échéance et reste dû de chaque facture.</p>
         <div class="pastilles"><span>En attente</span><span class="p-retard">En retard</span><span class="p-ok">Payée</span></div>
         <ol class="etapes">
@@ -174,6 +180,7 @@
       <div class="contenu">
         <p class="numero">Les dépenses</p>
         <h2>Le ticket, tel qu'il est</h2>
+        <img class="capture" src="img/11-nouvelle-depense.png" alt="Écran de l'application">
         <p><span class="bouton">+ Dépense</span> : date, fournisseur, catégorie, <strong>montant TTC du ticket</strong>, taux de TVA. Le HT est calculé.</p>
         <div class="encadre"><strong>Pourquoi tous les taux de TVA sont proposés ici ?</strong> Le taux d'un ticket est imposé par le fournisseur. Un restaurant à 10 % doit s'enregistrer, même si vous ne facturez jamais à 10 %. Pour vos factures, seuls vos taux sont proposés : pas d'erreur possible.</div>
         <p>Une dépense annulée reste visible, barrée, et ne compte plus.</p>
@@ -184,6 +191,7 @@
       <div class="contenu">
         <p class="numero">Vos chiffres</p>
         <h2>Où en êtes-vous ?</h2>
+        <img class="capture" src="img/12-chiffres.png" alt="Écran de l'application">
         <ul>
           <li><strong>À traiter maintenant</strong> : retards, rappels, séances à confirmer.</li>
           <li><strong>Ce qu'il reste à rentrer</strong> : à facturer, en attente, en retard.</li>
@@ -238,6 +246,7 @@
       <div class="contenu">
         <p class="numero">Paramétrages</p>
         <h2>Votre application, réglée pour vous</h2>
+        <img class="capture" src="img/14-parametrages.png" alt="Écran de l'application">
         <p><strong>Plus › Paramétrages</strong>, la roue crantée :</p>
         <ul>
           <li><strong>Mon entreprise</strong> : identité, SIRET ;</li>
@@ -251,6 +260,20 @@
     </section>
 
     <section class="diapo" aria-label="14">
+      <div class="contenu">
+        <p class="numero">Mode démonstration</p>
+        <h2>Essayer sans toucher à vos données</h2>
+        <p><strong>Plus › Paramétrages › Mode démonstration</strong> : Oui.</p>
+        <ul>
+          <li>L'application montre un <strong>exemple complet, inventé</strong> : clients, séances, factures, paiements, dépenses et chiffres.</li>
+          <li>Un <strong>bandeau</strong> le rappelle en permanence : données fictives, rien n'est enregistré.</li>
+          <li>Seul <strong>votre compte</strong> passe en démonstration ; vos e-mails et votre agenda ne changent pas.</li>
+        </ul>
+        <div class="encadre">Idéal pour découvrir l'écran Chiffres avant d'avoir vos propres données. Pour revenir à vos données : le bouton du bandeau, ou Mode démonstration : Non.</div>
+      </div>
+    </section>
+
+    <section class="diapo" aria-label="15">
       <div class="contenu">
         <p class="numero">À retenir</p>
         <h2>Trois règles, et c'est tout</h2>
